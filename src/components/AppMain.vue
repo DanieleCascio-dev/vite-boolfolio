@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import AppCard from "./AppCard.vue";
 export default {
   data() {
     return {
@@ -14,17 +15,16 @@ export default {
       console.log(resp);
     });
   },
+  components: { AppCard },
 };
 </script>
 
 <template>
   <div class="container">
     <h2>Here you can find all the project</h2>
-    <div class="row">
-      <div class="col-4">
-        <div v-for="project in projects">
-          <p>{{ project.title }}</p>
-        </div>
+    <div class="row g-3">
+      <div class="col-4" v-for="project in projects">
+        <AppCard :project="project" />
       </div>
     </div>
   </div>
