@@ -25,6 +25,12 @@ export default {
           {{ type.name }}
         </div>
       </div>
+      <h4>Tehcnologies:</h4>
+      <ul>
+        <div v-for="technology in project.technologies" :key="technology.id">
+          <li>{{ technology.name }}</li>
+        </div>
+      </ul>
     </div>
   </div>
 </template>
