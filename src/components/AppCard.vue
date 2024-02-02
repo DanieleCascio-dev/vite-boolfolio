@@ -11,7 +11,6 @@ export default {
     truncate(text) {
       if (text.length > 200) {
         text = text.substring(0, 200) + "...";
-        console.log(text);
       }
       return text;
     },
@@ -53,7 +52,9 @@ export default {
         </div>
       </ul>
 
-      <router-link class="btn btn-primary" :to="{ name: 'show' }"
+      <router-link
+        class="btn btn-primary"
+        :to="{ name: 'show', params: { slug: project.slug } }"
         >Details</router-link
       >
     </div>
