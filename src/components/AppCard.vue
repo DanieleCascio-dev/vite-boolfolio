@@ -52,6 +52,10 @@ export default {
           <li>{{ technology.name }}</li>
         </div>
       </ul>
+
+      <router-link class="btn btn-primary" :to="{ name: 'show' }"
+        >Details</router-link
+      >
     </div>
   </div>
 </template>
