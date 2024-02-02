@@ -7,6 +7,15 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    truncate(text) {
+      if (text.length > 200) {
+        text = text.substring(0, 200) + "...";
+        console.log(text);
+      }
+      return text;
+    },
+  },
 };
 </script>
 
@@ -16,15 +25,18 @@ export default {
       <h5 class="card-title">{{ project.title }}</h5>
       <p class="card-text">
         <strong>Description: </strong>
-        {{ project.description }}
+        {{ truncate(project.description) }}
       </p>
+      <h4>
+        Type:
 
-      <div v-for="type in types">
-        <div v-if="type.id == project.type_id">
-          Type:
-          {{ type.name }}
-        </div>
-      </div>
+        <span v-for="type in types">
+          <span v-if="type.id == project.type_id">
+            {{ type.name }}
+          </span>
+        </span>
+      </h4>
+
       <h4>Tehcnologies:</h4>
       <ul>
         <div v-for="technology in project.technologies" :key="technology.id">
