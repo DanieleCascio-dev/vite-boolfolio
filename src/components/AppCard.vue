@@ -16,6 +16,15 @@ export default {
       return text;
     },
   },
+  /* computed: {
+    truncate() {
+      if (this.project.description.length > 200) {
+       return this.project.description.length =
+          this.project.description.substring(0, 200) + "...";
+      }
+      return this.project.description
+    }, 
+  },*/
 };
 </script>
 

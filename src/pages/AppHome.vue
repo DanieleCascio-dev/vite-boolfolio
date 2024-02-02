@@ -1,20 +1,21 @@
 <script>
 import axios from "axios";
-import AppCard from "./AppCard.vue";
+import AppCard from "../components/AppCard.vue";
+import { store } from "../store";
 export default {
   data() {
     return {
-      base_url: "http://127.0.0.1:8000/",
+      store,
       projects: [],
       types: [],
     };
   },
   created() {
-    axios.get(`${this.base_url}api/projects`).then((resp) => {
+    axios.get(`${this.store.baseUrl}api/projects`).then((resp) => {
       this.projects = resp.data.results;
       console.log(this.projects);
     });
-    axios.get(`${this.base_url}api/types`).then((resp) => {
+    axios.get(`${this.store.baseUrl}api/types`).then((resp) => {
       this.types = resp.data.results;
       /* console.log(resp);
       console.log(this.types); */
