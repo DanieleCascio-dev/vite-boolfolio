@@ -60,10 +60,26 @@ export default {
     </div>
     <!-- Pagination -->
     <div class="d-flex gap-3">
-      <button class="btn btn-primary" @click="getProjects(this.page - 1)">
+      <button
+        :disabled="page === 1"
+        class="btn btn-primary"
+        @click="getProjects(page - 1)"
+      >
         Prev
       </button>
-      <button class="btn btn-primary" @click="getProjects(this.page + 1)">
+      <button
+        class="btn btn-primary"
+        :class="{ 'btn-success': num === page }"
+        v-for="num in lastPage"
+        @click="getProjects(num)"
+      >
+        {{ num }}
+      </button>
+      <button
+        :disabled="page === lastPage"
+        class="btn btn-primary"
+        @click="getProjects(page + 1)"
+      >
         Next
       </button>
     </div>
